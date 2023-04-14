@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DECLARE Model Discovery in Declare4Py &mdash; Test Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Query Checking in Declare4Py" href="Declare_Query_Checking.html" />
+    <link rel="prev" title="Conformance Checking (DECLARE Formulas) in Declare4Py" href="Declare_Conformance_Checking.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Test Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Site%20navigation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../gettingstarted.html">Getting Started</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../gettingstarted.html#tutorials">Tutorials</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Declare_Conformance_Checking.html">Conformance Checking (DECLARE Formulas) in Declare4Py</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DECLARE Model Discovery in Declare4Py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Declare_Query_Checking.html">Query Checking in Declare4Py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Log_Encodings.html">Log Encodings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Log_filtering.html">Filtering a Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Managing_Event_Logs.html">Managing Event Logs with Declare4Py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="system_overview.html">Declare4Py Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_activation_conditions.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_base.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_distribution.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_pos_neg_traces.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_variations.html">Generate pm4py log using ASP Generator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../creating.html">Creating a new doc file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Example.html">Welcome to the jupyter demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../collaborators.html">Collaborators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute to Declare4Py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">test package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Test Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../gettingstarted.html">Getting Started</a></li>
+      <li class="breadcrumb-item active">DECLARE Model Discovery in Declare4Py</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/Declare_Model_Discovery.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="DECLARE-Model-Discovery-in-Declare4Py">
+<h1>DECLARE Model Discovery in Declare4Py<a class="headerlink" href="#DECLARE-Model-Discovery-in-Declare4Py" title="Permalink to this heading"></a></h1>
+<p>This tutorial explains how to perform the discovery of a DECLARE model (without payload) and how to save the discovered model. We first import the relative <code class="docutils literal notranslate"><span class="pre">DeclareMiner</span></code> class and the load the log.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+
+<span class="n">SCRIPT_DIR</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;src&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">SCRIPT_DIR</span><span class="p">))</span>
+
+<span class="kn">from</span> <span class="nn">src.Declare4Py.ProcessModels.DeclareModel</span> <span class="kn">import</span> <span class="n">DeclareModel</span>
+<span class="kn">from</span> <span class="nn">src.Declare4Py.ProcessMiningTasks.Discovery.DeclareMiner</span> <span class="kn">import</span> <span class="n">DeclareMiner</span>
+<span class="kn">from</span> <span class="nn">src.Declare4Py.D4PyEventLog</span> <span class="kn">import</span> <span class="n">D4PyEventLog</span>
+
+<span class="n">log_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;tests&quot;</span><span class="p">,</span> <span class="s2">&quot;Sepsis Cases.xes.gz&quot;</span><span class="p">)</span>
+<span class="n">event_log</span> <span class="o">=</span> <span class="n">D4PyEventLog</span><span class="p">(</span><span class="n">case_name</span><span class="o">=</span><span class="s2">&quot;case:concept:name&quot;</span><span class="p">)</span>
+<span class="n">event_log</span><span class="o">.</span><span class="n">parse_xes_log</span><span class="p">(</span><span class="n">log_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "abc763356b8a4c158090263c9f8fddc8", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>The discovery of a DECLARE model is performed with the <code class="docutils literal notranslate"><span class="pre">DeclareMiner</span></code> class by setting:</p>
+<ol class="arabic simple">
+<li><p>the computing of the frequent itemsets with an input support and of length 2. However, this is hidden to the programmer and he just needs to set the float parameter <code class="docutils literal notranslate"><span class="pre">itemsets_support</span></code> when instantiating the <code class="docutils literal notranslate"><span class="pre">DeclareMiner</span></code> class.</p></li>
+<li><p>Some other paramenters of the <code class="docutils literal notranslate"><span class="pre">DeclareMiner</span></code> class have to be set:</p>
+<ol class="arabic simple">
+<li><p>the event log;</p></li>
+<li><p>The boolean parameter <code class="docutils literal notranslate"><span class="pre">consider_vacuity=true</span></code> that considers vacuously satisfied traces as satisfied, violated otherwise.</p></li>
+<li><p>the float parameter <code class="docutils literal notranslate"><span class="pre">min_support</span></code> that sets the support to be satisfied in the log by each discovered constraint.</p></li>
+<li><p>The integer parameter <code class="docutils literal notranslate"><span class="pre">max_declare_cardinality</span></code> sets the cardinality of the Exactly, Existence and Absence templates.</p></li>
+</ol>
+</li>
+</ol>
+<p>Then, the model is discovery by calling the<code class="docutils literal notranslate"><span class="pre">DeclareMiner.run()</span></code> function that returns an <code class="docutils literal notranslate"><span class="pre">DeclareModel</span></code> object.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">discovery</span> <span class="o">=</span> <span class="n">DeclareMiner</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="n">event_log</span><span class="p">,</span> <span class="n">consider_vacuity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">min_support</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">itemsets_support</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">max_declare_cardinality</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">discovered_model</span><span class="p">:</span> <span class="n">DeclareModel</span> <span class="o">=</span> <span class="n">discovery</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Computing discovery ...
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/ivan/opt/anaconda3/lib/python3.9/site-packages/mlxtend/frequent_patterns/fpcommon.py:111: DeprecationWarning: DataFrames with non-bool types result in worse computationalperformance and their support might be discontinued in the future.Please use a DataFrame with bool type
+  warnings.warn(
+</pre></div></div>
+</div>
+<p>The discovered model can be inspected by showing the list of <code class="docutils literal notranslate"><span class="pre">serialized_constraints</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">discovered_model</span><span class="o">.</span><span class="n">serialized_constraints</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Existence1[ER Triage] | |&#39;,
+ &#39;Absence2[ER Triage] | |&#39;,
+ &#39;Absence3[ER Triage] | |&#39;,
+ &#39;Exactly1[ER Triage] | |&#39;,
+ &#39;Existence1[ER Registration] | |&#39;,
+ &#39;Absence2[ER Registration] | |&#39;,
+ &#39;Absence3[ER Registration] | |&#39;,
+ &#39;Exactly1[ER Registration] | |&#39;,
+ &#39;Init[ER Registration] | |&#39;,
+ &#39;Existence1[ER Sepsis Triage] | |&#39;,
+ &#39;Absence2[ER Sepsis Triage] | |&#39;,
+ &#39;Absence3[ER Sepsis Triage] | |&#39;,
+ &#39;Exactly1[ER Sepsis Triage] | |&#39;,
+ &#39;Existence1[Leucocytes] | |&#39;,
+ &#39;Existence2[Leucocytes] | |&#39;,
+ &#39;Existence3[Leucocytes] | |&#39;,
+ &#39;Absence2[Leucocytes] | |&#39;,
+ &#39;Absence3[Leucocytes] | |&#39;,
+ &#39;Exactly1[Leucocytes] | |&#39;,
+ &#39;Exactly2[Leucocytes] | |&#39;,
+ &#39;Existence1[CRP] | |&#39;,
+ &#39;Existence2[CRP] | |&#39;,
+ &#39;Existence3[CRP] | |&#39;,
+ &#39;Absence2[CRP] | |&#39;,
+ &#39;Absence3[CRP] | |&#39;,
+ &#39;Exactly1[CRP] | |&#39;,
+ &#39;Exactly2[CRP] | |&#39;,
+ &#39;Choice[ER Registration, ER Triage] | |&#39;,
+ &#39;Choice[ER Triage, ER Registration] | |&#39;,
+ &#39;Responded Existence[ER Registration, ER Triage] | |&#39;,
+ &#39;Responded Existence[ER Triage, ER Registration] | |&#39;,
+ &#39;Response[ER Registration, ER Triage] | |&#39;,
+ &#39;Alternate Response[ER Registration, ER Triage] | |&#39;,
+ &#39;Chain Response[ER Registration, ER Triage] | |&#39;,
+ &#39;Precedence[ER Registration, ER Triage] | |&#39;,
+ &#39;Alternate Precedence[ER Registration, ER Triage] | |&#39;,
+ &#39;Chain Precedence[ER Registration, ER Triage] | |&#39;,
+ &#39;Not Response[ER Triage, ER Registration] | |&#39;,
+ &#39;Not Precedence[ER Triage, ER Registration] | |&#39;,
+ &#39;Not Chain Response[ER Triage, ER Registration] | |&#39;,
+ &#39;Not Chain Precedence[ER Triage, ER Registration] | |&#39;,
+ &#39;Choice[ER Sepsis Triage, ER Registration] | |&#39;,
+ &#39;Choice[ER Registration, ER Sepsis Triage] | |&#39;,
+ &#39;Responded Existence[ER Sepsis Triage, ER Registration] | |&#39;,
+ &#39;Responded Existence[ER Registration, ER Sepsis Triage] | |&#39;,
+ &#39;Response[ER Registration, ER Sepsis Triage] | |&#39;,
+ &#39;Alternate Response[ER Registration, ER Sepsis Triage] | |&#39;,
+ &#39;Precedence[ER Registration, ER Sepsis Triage] | |&#39;,
+ &#39;Alternate Precedence[ER Registration, ER Sepsis Triage] | |&#39;,
+ &#39;Not Response[ER Sepsis Triage, ER Registration] | |&#39;,
+ &#39;Not Precedence[ER Sepsis Triage, ER Registration] | |&#39;,
+ &#39;Not Chain Response[ER Sepsis Triage, ER Registration] | |&#39;,
+ &#39;Not Chain Response[ER Registration, ER Sepsis Triage] | |&#39;,
+ &#39;Not Chain Precedence[ER Sepsis Triage, ER Registration] | |&#39;,
+ &#39;Not Chain Precedence[ER Registration, ER Sepsis Triage] | |&#39;,
+ &#39;Choice[ER Sepsis Triage, ER Triage] | |&#39;,
+ &#39;Choice[ER Triage, ER Sepsis Triage] | |&#39;,
+ &#39;Responded Existence[ER Sepsis Triage, ER Triage] | |&#39;,
+ &#39;Responded Existence[ER Triage, ER Sepsis Triage] | |&#39;,
+ &#39;Response[ER Triage, ER Sepsis Triage] | |&#39;,
+ &#39;Alternate Response[ER Triage, ER Sepsis Triage] | |&#39;,
+ &#39;Chain Response[ER Triage, ER Sepsis Triage] | |&#39;,
+ &#39;Precedence[ER Triage, ER Sepsis Triage] | |&#39;,
+ &#39;Alternate Precedence[ER Triage, ER Sepsis Triage] | |&#39;,
+ &#39;Chain Precedence[ER Triage, ER Sepsis Triage] | |&#39;,
+ &#39;Not Response[ER Sepsis Triage, ER Triage] | |&#39;,
+ &#39;Not Precedence[ER Sepsis Triage, ER Triage] | |&#39;,
+ &#39;Not Chain Response[ER Sepsis Triage, ER Triage] | |&#39;,
+ &#39;Not Chain Precedence[ER Sepsis Triage, ER Triage] | |&#39;,
+ &#39;Choice[ER Registration, Leucocytes] | |&#39;,
+ &#39;Choice[Leucocytes, ER Registration] | |&#39;,
+ &#39;Responded Existence[ER Registration, Leucocytes] | |&#39;,
+ &#39;Responded Existence[Leucocytes, ER Registration] | |&#39;,
+ &#39;Response[ER Registration, Leucocytes] | |&#39;,
+ &#39;Alternate Response[ER Registration, Leucocytes] | |&#39;,
+ &#39;Precedence[ER Registration, Leucocytes] | |&#39;,
+ &#39;Alternate Precedence[ER Registration, Leucocytes] | |&#39;,
+ &#39;Not Response[Leucocytes, ER Registration] | |&#39;,
+ &#39;Not Precedence[Leucocytes, ER Registration] | |&#39;,
+ &#39;Not Chain Response[ER Registration, Leucocytes] | |&#39;,
+ &#39;Not Chain Response[Leucocytes, ER Registration] | |&#39;,
+ &#39;Not Chain Precedence[ER Registration, Leucocytes] | |&#39;,
+ &#39;Not Chain Precedence[Leucocytes, ER Registration] | |&#39;,
+ &#39;Choice[ER Triage, Leucocytes] | |&#39;,
+ &#39;Choice[Leucocytes, ER Triage] | |&#39;,
+ &#39;Responded Existence[ER Triage, Leucocytes] | |&#39;,
+ &#39;Responded Existence[Leucocytes, ER Triage] | |&#39;,
+ &#39;Response[ER Triage, Leucocytes] | |&#39;,
+ &#39;Alternate Response[ER Triage, Leucocytes] | |&#39;,
+ &#39;Precedence[ER Triage, Leucocytes] | |&#39;,
+ &#39;Alternate Precedence[ER Triage, Leucocytes] | |&#39;,
+ &#39;Not Response[Leucocytes, ER Triage] | |&#39;,
+ &#39;Not Precedence[Leucocytes, ER Triage] | |&#39;,
+ &#39;Not Chain Response[ER Triage, Leucocytes] | |&#39;,
+ &#39;Not Chain Response[Leucocytes, ER Triage] | |&#39;,
+ &#39;Not Chain Precedence[ER Triage, Leucocytes] | |&#39;,
+ &#39;Not Chain Precedence[Leucocytes, ER Triage] | |&#39;,
+ &#39;Choice[ER Sepsis Triage, Leucocytes] | |&#39;,
+ &#39;Choice[Leucocytes, ER Sepsis Triage] | |&#39;,
+ &#39;Responded Existence[ER Sepsis Triage, Leucocytes] | |&#39;,
+ &#39;Responded Existence[Leucocytes, ER Sepsis Triage] | |&#39;,
+ &#39;Response[ER Sepsis Triage, Leucocytes] | |&#39;,
+ &#39;Alternate Response[ER Sepsis Triage, Leucocytes] | |&#39;,
+ &#39;Chain Response[ER Sepsis Triage, Leucocytes] | |&#39;,
+ &#39;Precedence[ER Sepsis Triage, Leucocytes] | |&#39;,
+ &#39;Alternate Precedence[ER Sepsis Triage, Leucocytes] | |&#39;,
+ &#39;Not Response[Leucocytes, ER Sepsis Triage] | |&#39;,
+ &#39;Not Precedence[Leucocytes, ER Sepsis Triage] | |&#39;,
+ &#39;Not Chain Response[ER Sepsis Triage, Leucocytes] | |&#39;,
+ &#39;Not Chain Response[Leucocytes, ER Sepsis Triage] | |&#39;,
+ &#39;Not Chain Precedence[ER Sepsis Triage, Leucocytes] | |&#39;,
+ &#39;Not Chain Precedence[Leucocytes, ER Sepsis Triage] | |&#39;,
+ &#39;Choice[ER Registration, CRP] | |&#39;,
+ &#39;Choice[CRP, ER Registration] | |&#39;,
+ &#39;Responded Existence[ER Registration, CRP] | |&#39;,
+ &#39;Responded Existence[CRP, ER Registration] | |&#39;,
+ &#39;Response[ER Registration, CRP] | |&#39;,
+ &#39;Alternate Response[ER Registration, CRP] | |&#39;,
+ &#39;Precedence[ER Registration, CRP] | |&#39;,
+ &#39;Alternate Precedence[ER Registration, CRP] | |&#39;,
+ &#39;Not Response[CRP, ER Registration] | |&#39;,
+ &#39;Not Precedence[CRP, ER Registration] | |&#39;,
+ &#39;Not Chain Response[ER Registration, CRP] | |&#39;,
+ &#39;Not Chain Response[CRP, ER Registration] | |&#39;,
+ &#39;Not Chain Precedence[ER Registration, CRP] | |&#39;,
+ &#39;Not Chain Precedence[CRP, ER Registration] | |&#39;,
+ &#39;Choice[ER Triage, CRP] | |&#39;,
+ &#39;Choice[CRP, ER Triage] | |&#39;,
+ &#39;Responded Existence[ER Triage, CRP] | |&#39;,
+ &#39;Responded Existence[CRP, ER Triage] | |&#39;,
+ &#39;Response[ER Triage, CRP] | |&#39;,
+ &#39;Alternate Response[ER Triage, CRP] | |&#39;,
+ &#39;Precedence[ER Triage, CRP] | |&#39;,
+ &#39;Alternate Precedence[ER Triage, CRP] | |&#39;,
+ &#39;Not Response[CRP, ER Triage] | |&#39;,
+ &#39;Not Precedence[CRP, ER Triage] | |&#39;,
+ &#39;Not Chain Response[ER Triage, CRP] | |&#39;,
+ &#39;Not Chain Response[CRP, ER Triage] | |&#39;,
+ &#39;Not Chain Precedence[ER Triage, CRP] | |&#39;,
+ &#39;Not Chain Precedence[CRP, ER Triage] | |&#39;,
+ &#39;Choice[CRP, Leucocytes] | |&#39;,
+ &#39;Choice[Leucocytes, CRP] | |&#39;,
+ &#39;Responded Existence[CRP, Leucocytes] | |&#39;,
+ &#39;Responded Existence[Leucocytes, CRP] | |&#39;,
+ &#39;Response[CRP, Leucocytes] | |&#39;,
+ &#39;Response[Leucocytes, CRP] | |&#39;,
+ &#39;Alternate Response[CRP, Leucocytes] | |&#39;,
+ &#39;Alternate Response[Leucocytes, CRP] | |&#39;,
+ &#39;Chain Response[Leucocytes, CRP] | |&#39;,
+ &#39;Precedence[CRP, Leucocytes] | |&#39;,
+ &#39;Precedence[Leucocytes, CRP] | |&#39;,
+ &#39;Alternate Precedence[CRP, Leucocytes] | |&#39;,
+ &#39;Alternate Precedence[Leucocytes, CRP] | |&#39;,
+ &#39;Chain Precedence[Leucocytes, CRP] | |&#39;,
+ &#39;Not Chain Response[CRP, Leucocytes] | |&#39;,
+ &#39;Not Chain Response[Leucocytes, CRP] | |&#39;,
+ &#39;Not Chain Precedence[CRP, Leucocytes] | |&#39;,
+ &#39;Not Chain Precedence[Leucocytes, CRP] | |&#39;,
+ &#39;Choice[ER Sepsis Triage, CRP] | |&#39;,
+ &#39;Choice[CRP, ER Sepsis Triage] | |&#39;,
+ &#39;Responded Existence[ER Sepsis Triage, CRP] | |&#39;,
+ &#39;Responded Existence[CRP, ER Sepsis Triage] | |&#39;,
+ &#39;Response[ER Sepsis Triage, CRP] | |&#39;,
+ &#39;Alternate Response[ER Sepsis Triage, CRP] | |&#39;,
+ &#39;Precedence[ER Sepsis Triage, CRP] | |&#39;,
+ &#39;Alternate Precedence[ER Sepsis Triage, CRP] | |&#39;,
+ &#39;Not Response[CRP, ER Sepsis Triage] | |&#39;,
+ &#39;Not Precedence[CRP, ER Sepsis Triage] | |&#39;,
+ &#39;Not Chain Response[ER Sepsis Triage, CRP] | |&#39;,
+ &#39;Not Chain Response[CRP, ER Sepsis Triage] | |&#39;,
+ &#39;Not Chain Precedence[ER Sepsis Triage, CRP] | |&#39;,
+ &#39;Not Chain Precedence[CRP, ER Sepsis Triage] | |&#39;]
+</pre></div></div>
+</div>
+<p>In addition, it is possible to save the discovered model in the file system:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">discovered_model</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;sepsis_discovered_model.decl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Declare_Conformance_Checking.html" class="btn btn-neutral float-left" title="Conformance Checking (DECLARE Formulas) in Declare4Py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Declare_Query_Checking.html" class="btn btn-neutral float-right" title="Query Checking in Declare4Py" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, diell.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

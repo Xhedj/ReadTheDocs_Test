@@ -1,0 +1,3530 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log Encodings &mdash; Test Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Filtering a Log" href="Log_filtering.html" />
+    <link rel="prev" title="Query Checking in Declare4Py" href="Declare_Query_Checking.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Test Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Site%20navigation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../gettingstarted.html">Getting Started</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../gettingstarted.html#tutorials">Tutorials</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Declare_Conformance_Checking.html">Conformance Checking (DECLARE Formulas) in Declare4Py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Declare_Model_Discovery.html">DECLARE Model Discovery in Declare4Py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Declare_Query_Checking.html">Query Checking in Declare4Py</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Log Encodings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Encodings-families">Encodings families</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Encoding-combinations">Encoding combinations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#A-Machine-Learning-pipeline">A Machine Learning pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Log_filtering.html">Filtering a Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Managing_Event_Logs.html">Managing Event Logs with Declare4Py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="system_overview.html">Declare4Py Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_activation_conditions.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_base.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_distribution.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_pos_neg_traces.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_variations.html">Generate pm4py log using ASP Generator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../creating.html">Creating a new doc file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Example.html">Welcome to the jupyter demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../collaborators.html">Collaborators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute to Declare4Py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">test package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Test Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../gettingstarted.html">Getting Started</a></li>
+      <li class="breadcrumb-item active">Log Encodings</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/Log_Encodings.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Log-Encodings">
+<h1>Log Encodings<a class="headerlink" href="#Log-Encodings" title="Permalink to this heading"></a></h1>
+<p>Declare4Py provides several among the main encoding techniques for vectorizing a traces log. These are useful for applying Machine Learning techniques. The encoding classes provided by Declare4Py (see the <code class="docutils literal notranslate"><span class="pre">Declare4Py.Encodings</span></code> package) take as an input a log in a Pandas dataframe format and return a Pandas dataframe whose rows represent a single trace and the columns the extracted features. The Declare4Py encodings are implemented as scikit-learn transformers so it is straightfoward to use
+them in a Machine Learning pipeline.</p>
+<p>The tutorial will cover the following points: 1. Encodings families: 1. The boolean encoding; 2. The frequency-based encoding; 3. Aggregated encodings; 4. Indexed encodings: 1. The simple-index encoding; 2. The complex-Index encoding; 5. Static Encodings: 1. The first-state encoding; 2. The second-to-last-state encoding; 3. The last-state encoding; 6. The Ngram encoding; 7. The Declare encoding; 2. Encoding combinations: 1. The index-latest-payload encoding; 3. A Machine Learning pipeline.</p>
+<p>Before starting how to use the encodings the necessary packages need to be imported.</p>
+<p>[1] [2] [3] [4]</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">pm4py</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="n">SCRIPT_DIR</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;src&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">SCRIPT_DIR</span><span class="p">))</span>
+
+<span class="kn">from</span> <span class="nn">src.Declare4Py.Encodings.Aggregate</span> <span class="kn">import</span> <span class="n">Aggregate</span>
+<span class="kn">from</span> <span class="nn">src.Declare4Py.Encodings.IndexBased</span> <span class="kn">import</span> <span class="n">IndexBased</span>
+<span class="kn">from</span> <span class="nn">src.Declare4Py.Encodings.Static</span> <span class="kn">import</span> <span class="n">Static</span>
+<span class="kn">from</span> <span class="nn">src.Declare4Py.Encodings.PreviousState</span> <span class="kn">import</span> <span class="n">PreviousState</span>
+<span class="kn">from</span> <span class="nn">src.Declare4Py.Encodings.LastState</span> <span class="kn">import</span> <span class="n">LastState</span>
+<span class="kn">from</span> <span class="nn">src.Declare4Py.Encodings.Ngram</span> <span class="kn">import</span> <span class="n">Ngram</span>
+<span class="kn">from</span> <span class="nn">src.Declare4Py.Encodings.Declare</span> <span class="kn">import</span> <span class="n">Declare</span>
+</pre></div>
+</div>
+</div>
+<p>The input format for the <code class="docutils literal notranslate"><span class="pre">Encodings</span></code> classes are logs as Pandas dataframe. Therefore, we import the event log and convert it in a Pandas dataframe.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.Declare4Py.D4PyEventLog</span> <span class="kn">import</span> <span class="n">D4PyEventLog</span>
+
+<span class="n">log_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;tests&quot;</span><span class="p">,</span> <span class="s2">&quot;Sepsis Cases.xes.gz&quot;</span><span class="p">)</span>
+<span class="n">event_log</span> <span class="o">=</span> <span class="n">D4PyEventLog</span><span class="p">(</span><span class="n">case_name</span><span class="o">=</span><span class="s2">&quot;case:concept:name&quot;</span><span class="p">)</span>
+<span class="n">event_log</span><span class="o">.</span><span class="n">parse_xes_log</span><span class="p">(</span><span class="n">log_path</span><span class="p">)</span>
+<span class="n">case_id_key</span> <span class="o">=</span> <span class="n">event_log</span><span class="o">.</span><span class="n">get_case_name</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">event_log</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "45b5335708454011b9910c1f3f32992d", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>InfectionSuspected</th>
+      <th>org:group</th>
+      <th>DiagnosticBlood</th>
+      <th>DisfuncOrg</th>
+      <th>SIRSCritTachypnea</th>
+      <th>Hypotensie</th>
+      <th>SIRSCritHeartRate</th>
+      <th>Infusion</th>
+      <th>DiagnosticArtAstrup</th>
+      <th>concept:name</th>
+      <th>...</th>
+      <th>DiagnosticLacticAcid</th>
+      <th>lifecycle:transition</th>
+      <th>Diagnose</th>
+      <th>Hypoxie</th>
+      <th>DiagnosticUrinarySediment</th>
+      <th>DiagnosticECG</th>
+      <th>case:concept:name</th>
+      <th>Leucocytes</th>
+      <th>CRP</th>
+      <th>LacticAcid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>True</td>
+      <td>A</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>ER Registration</td>
+      <td>...</td>
+      <td>True</td>
+      <td>complete</td>
+      <td>A</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>A</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>B</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Leucocytes</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>complete</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>A</td>
+      <td>9.6</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>B</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CRP</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>complete</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>A</td>
+      <td>NaN</td>
+      <td>21.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>B</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>LacticAcid</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>complete</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>A</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ER Triage</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>complete</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>A</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 32 columns</p>
+</div></div>
+</div>
+<section id="Encodings-families">
+<h2>Encodings families<a class="headerlink" href="#Encodings-families" title="Permalink to this heading"></a></h2>
+<p>A Declare4Py encoding is implemented as a scikit-learn transformer class, you just need to instantiate the corresponding <code class="docutils literal notranslate"><span class="pre">encoder</span></code> object and call the function <code class="docutils literal notranslate"><span class="pre">fit_transform(df)</span></code> on the input dataframe. The name of the features can be retrieved with the <code class="docutils literal notranslate"><span class="pre">get_feature_names()</span></code> function.</p>
+<section id="The-Boolean-Encoding">
+<h3>The Boolean Encoding<a class="headerlink" href="#The-Boolean-Encoding" title="Permalink to this heading"></a></h3>
+<p>In the <strong>boolean encoding</strong> sequences of events are represented as feature vectors, in such a way that each feature corresponds to an event class (an activity) from the log. This is achieved with the <code class="docutils literal notranslate"><span class="pre">Declare4Py.Encodings.Aggregate.Aggregate</span></code> class by setting the categorical attributes and the <code class="docutils literal notranslate"><span class="pre">boolean</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoder</span> <span class="o">=</span> <span class="n">Aggregate</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">cat_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;concept:name&#39;</span><span class="p">,</span> <span class="s1">&#39;org:group&#39;</span><span class="p">],</span> <span class="n">boolean</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">enc_df</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Log features:</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">encoder</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">enc_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Log features:
+ Index([&#39;concept:name_Admission IC&#39;, &#39;concept:name_Admission NC&#39;,
+       &#39;concept:name_CRP&#39;, &#39;concept:name_ER Registration&#39;,
+       &#39;concept:name_ER Sepsis Triage&#39;, &#39;concept:name_ER Triage&#39;,
+       &#39;concept:name_IV Antibiotics&#39;, &#39;concept:name_IV Liquid&#39;,
+       &#39;concept:name_LacticAcid&#39;, &#39;concept:name_Leucocytes&#39;,
+       &#39;concept:name_Release A&#39;, &#39;concept:name_Release B&#39;,
+       &#39;concept:name_Release C&#39;, &#39;concept:name_Release D&#39;,
+       &#39;concept:name_Release E&#39;, &#39;concept:name_Return ER&#39;, &#39;org:group_?&#39;,
+       &#39;org:group_A&#39;, &#39;org:group_B&#39;, &#39;org:group_C&#39;, &#39;org:group_D&#39;,
+       &#39;org:group_E&#39;, &#39;org:group_F&#39;, &#39;org:group_G&#39;, &#39;org:group_H&#39;,
+       &#39;org:group_I&#39;, &#39;org:group_J&#39;, &#39;org:group_K&#39;, &#39;org:group_L&#39;,
+       &#39;org:group_M&#39;, &#39;org:group_N&#39;, &#39;org:group_O&#39;, &#39;org:group_P&#39;,
+       &#39;org:group_Q&#39;, &#39;org:group_R&#39;, &#39;org:group_S&#39;, &#39;org:group_T&#39;,
+       &#39;org:group_U&#39;, &#39;org:group_V&#39;, &#39;org:group_W&#39;, &#39;org:group_X&#39;,
+       &#39;org:group_Y&#39;],
+      dtype=&#39;object&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>concept:name_Admission IC</th>
+      <th>concept:name_Admission NC</th>
+      <th>concept:name_CRP</th>
+      <th>concept:name_ER Registration</th>
+      <th>concept:name_ER Sepsis Triage</th>
+      <th>concept:name_ER Triage</th>
+      <th>concept:name_IV Antibiotics</th>
+      <th>concept:name_IV Liquid</th>
+      <th>concept:name_LacticAcid</th>
+      <th>concept:name_Leucocytes</th>
+      <th>...</th>
+      <th>org:group_P</th>
+      <th>org:group_Q</th>
+      <th>org:group_R</th>
+      <th>org:group_S</th>
+      <th>org:group_T</th>
+      <th>org:group_U</th>
+      <th>org:group_V</th>
+      <th>org:group_W</th>
+      <th>org:group_X</th>
+      <th>org:group_Y</th>
+    </tr>
+    <tr>
+      <th>case:concept:name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AA</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AAA</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AB</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ABA</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 42 columns</p>
+</div></div>
+</div>
+</section>
+<section id="The-Frequency-Based-Encoding">
+<h3>The Frequency-Based Encoding<a class="headerlink" href="#The-Frequency-Based-Encoding" title="Permalink to this heading"></a></h3>
+<p>The <strong>frequency-based encoding</strong>, instead of boolean values, represents the control flow in a case with the frequency of each event class in the case. This is achieved with the <code class="docutils literal notranslate"><span class="pre">Declare4Py.Encodings.Aggregate.Aggregate</span></code> class by setting the categorical attributes and the <code class="docutils literal notranslate"><span class="pre">boolean</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoder</span> <span class="o">=</span> <span class="n">Aggregate</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">cat_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;concept:name&#39;</span><span class="p">,</span> <span class="s1">&#39;org:group&#39;</span><span class="p">],</span> <span class="n">boolean</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">enc_df</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">enc_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>concept:name_Admission IC</th>
+      <th>concept:name_Admission NC</th>
+      <th>concept:name_CRP</th>
+      <th>concept:name_ER Registration</th>
+      <th>concept:name_ER Sepsis Triage</th>
+      <th>concept:name_ER Triage</th>
+      <th>concept:name_IV Antibiotics</th>
+      <th>concept:name_IV Liquid</th>
+      <th>concept:name_LacticAcid</th>
+      <th>concept:name_Leucocytes</th>
+      <th>...</th>
+      <th>org:group_P</th>
+      <th>org:group_Q</th>
+      <th>org:group_R</th>
+      <th>org:group_S</th>
+      <th>org:group_T</th>
+      <th>org:group_U</th>
+      <th>org:group_V</th>
+      <th>org:group_W</th>
+      <th>org:group_X</th>
+      <th>org:group_Y</th>
+    </tr>
+    <tr>
+      <th>case:concept:name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>0</td>
+      <td>1</td>
+      <td>7</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AA</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AAA</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AB</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ABA</th>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 42 columns</p>
+</div></div>
+</div>
+</section>
+<section id="The-Aggregated-Encoding">
+<h3>The Aggregated Encoding<a class="headerlink" href="#The-Aggregated-Encoding" title="Permalink to this heading"></a></h3>
+<p>The <strong>aggregated encoding</strong> considers all events since the beginning of the case, but ignore the order of the events. In this case, several aggregation functions can be applied to the values that an event attribute has taken throughout the case. This is achieved with the <code class="docutils literal notranslate"><span class="pre">Declare4Py.Encodings.Aggregate.Aggregate</span></code> class by setting the categorical attributes, the numeric attributes, the <code class="docutils literal notranslate"><span class="pre">boolean</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">False</span></code> and a list of functions to aggregate the numeric attributes, e.g., ‘mean’,
+‘max’, ‘min’, ‘sum’, ‘std’.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoder</span> <span class="o">=</span> <span class="n">Aggregate</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">cat_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;concept:name&#39;</span><span class="p">,</span> <span class="s1">&#39;org:group&#39;</span><span class="p">],</span> <span class="n">num_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CRP&#39;</span><span class="p">],</span> <span class="n">boolean</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">aggregation_functions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">])</span>
+<span class="n">enc_df</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">enc_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>concept:name_Admission IC</th>
+      <th>concept:name_Admission NC</th>
+      <th>concept:name_CRP</th>
+      <th>concept:name_ER Registration</th>
+      <th>concept:name_ER Sepsis Triage</th>
+      <th>concept:name_ER Triage</th>
+      <th>concept:name_IV Antibiotics</th>
+      <th>concept:name_IV Liquid</th>
+      <th>concept:name_LacticAcid</th>
+      <th>concept:name_Leucocytes</th>
+      <th>...</th>
+      <th>org:group_S</th>
+      <th>org:group_T</th>
+      <th>org:group_U</th>
+      <th>org:group_V</th>
+      <th>org:group_W</th>
+      <th>org:group_X</th>
+      <th>org:group_Y</th>
+      <th>CRP_min</th>
+      <th>CRP_mean</th>
+      <th>CRP_max</th>
+    </tr>
+    <tr>
+      <th>case:concept:name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>0</td>
+      <td>1</td>
+      <td>7</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6.0</td>
+      <td>30.857143</td>
+      <td>109.0</td>
+    </tr>
+    <tr>
+      <th>AA</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.0</td>
+      <td>23.000000</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>AAA</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>68.0</td>
+      <td>68.000000</td>
+      <td>68.0</td>
+    </tr>
+    <tr>
+      <th>AB</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>48.0</td>
+      <td>48.000000</td>
+      <td>48.0</td>
+    </tr>
+    <tr>
+      <th>ABA</th>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>78.0</td>
+      <td>105.000000</td>
+      <td>140.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 45 columns</p>
+</div></div>
+</div>
+</section>
+<section id="Indexed-Encodings">
+<h3>Indexed Encodings<a class="headerlink" href="#Indexed-Encodings" title="Permalink to this heading"></a></h3>
+<section id="The-Simple-Index-Encoding">
+<h4>The Simple-Index Encoding<a class="headerlink" href="#The-Simple-Index-Encoding" title="Permalink to this heading"></a></h4>
+<p>Another way of encoding a sequence is by taking into account also information about the order in which events occur in the sequence, as in the <strong>simple-index encoding</strong>. Here, each feature corresponds to a position in the sequence and the possible values for each feature are the presence of that event classes. This is achieved with the <code class="docutils literal notranslate"><span class="pre">Declare4Py.Encodings.IndexBased.IndexBased</span></code> class by setting the categorical attributes, the <code class="docutils literal notranslate"><span class="pre">create_dummies</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">True</span></code> and the <code class="docutils literal notranslate"><span class="pre">max_events</span></code> to
+an integer value lower or equal than the maximum number of events in a trace in the log. If None, the parameter will set to the maximum number of events in a trace in the log. Such parameter sets the first events in the log to be use for indexing.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># with max_events the maximum number of events in a trace in the log.</span>
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">IndexBased</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">cat_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;concept:name&#39;</span><span class="p">],</span> <span class="n">create_dummies</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">enc_df</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">enc_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>concept:name_0_CRP</th>
+      <th>concept:name_0_ER Registration</th>
+      <th>concept:name_0_ER Sepsis Triage</th>
+      <th>concept:name_0_ER Triage</th>
+      <th>concept:name_0_IV Liquid</th>
+      <th>concept:name_0_Leucocytes</th>
+      <th>concept:name_1_CRP</th>
+      <th>concept:name_1_ER Registration</th>
+      <th>concept:name_1_ER Sepsis Triage</th>
+      <th>concept:name_1_ER Triage</th>
+      <th>...</th>
+      <th>concept:name_175_Leucocytes</th>
+      <th>concept:name_176_CRP</th>
+      <th>concept:name_177_CRP</th>
+      <th>concept:name_178_Leucocytes</th>
+      <th>concept:name_179_Leucocytes</th>
+      <th>concept:name_180_CRP</th>
+      <th>concept:name_181_Leucocytes</th>
+      <th>concept:name_182_CRP</th>
+      <th>concept:name_183_Leucocytes</th>
+      <th>concept:name_184_Release C</th>
+    </tr>
+    <tr>
+      <th>case:concept:name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AA</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AAA</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AB</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ABA</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 656 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># with max_events equal to 2.</span>
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">IndexBased</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">cat_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;concept:name&#39;</span><span class="p">],</span> <span class="n">max_events</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">create_dummies</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">enc_df</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">enc_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>concept:name_0_CRP</th>
+      <th>concept:name_0_ER Registration</th>
+      <th>concept:name_0_ER Sepsis Triage</th>
+      <th>concept:name_0_ER Triage</th>
+      <th>concept:name_0_IV Liquid</th>
+      <th>concept:name_0_Leucocytes</th>
+      <th>concept:name_1_CRP</th>
+      <th>concept:name_1_ER Registration</th>
+      <th>concept:name_1_ER Sepsis Triage</th>
+      <th>concept:name_1_ER Triage</th>
+      <th>concept:name_1_IV Antibiotics</th>
+      <th>concept:name_1_IV Liquid</th>
+      <th>concept:name_1_LacticAcid</th>
+      <th>concept:name_1_Leucocytes</th>
+    </tr>
+    <tr>
+      <th>case:concept:name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>AA</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AAA</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AB</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ABA</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="The-Complex-Index-Encoding">
+<h4>The Complex-Index Encoding<a class="headerlink" href="#The-Complex-Index-Encoding" title="Permalink to this heading"></a></h4>
+<p>The <strong>complex-based encoding</strong> takes into account also payload columns in the <code class="docutils literal notranslate"><span class="pre">cat_cols</span></code> or <code class="docutils literal notranslate"><span class="pre">num_cols</span></code> parameters.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoder</span> <span class="o">=</span> <span class="n">IndexBased</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">cat_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;concept:name&#39;</span><span class="p">,</span> <span class="s1">&#39;org:group&#39;</span><span class="p">],</span> <span class="n">num_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CRP&#39;</span><span class="p">],</span> <span class="n">create_dummies</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">enc_df</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">enc_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CRP_0</th>
+      <th>CRP_1</th>
+      <th>CRP_2</th>
+      <th>CRP_3</th>
+      <th>CRP_4</th>
+      <th>CRP_5</th>
+      <th>CRP_6</th>
+      <th>CRP_7</th>
+      <th>CRP_8</th>
+      <th>CRP_9</th>
+      <th>...</th>
+      <th>org:group_175_B</th>
+      <th>org:group_176_B</th>
+      <th>org:group_177_B</th>
+      <th>org:group_178_B</th>
+      <th>org:group_179_B</th>
+      <th>org:group_180_B</th>
+      <th>org:group_181_B</th>
+      <th>org:group_182_B</th>
+      <th>org:group_183_B</th>
+      <th>org:group_184_E</th>
+    </tr>
+    <tr>
+      <th>case:concept:name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>21.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>109.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AA</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>23.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AAA</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>68.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AB</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>48.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ABA</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>78.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 1400 columns</p>
+</div></div>
+</div>
+</section>
+</section>
+<section id="Static-Encodings">
+<h3>Static Encodings<a class="headerlink" href="#Static-Encodings" title="Permalink to this heading"></a></h3>
+<p>In a static encoding, only an available snapshot of the data is used. Therefore, the size of the feature vector is proportional to the number of event attributes and is fixed throughout the execution of a case.</p>
+<p>Using the last state abstraction, only one value (e.g., the last snapshot) of each data attribute is available. Here, the numeric attributes are added to the feature vector “as is” while one hot encoding is applied to each categorical attribute.</p>
+<section id="The-First-State-Encoding">
+<h4>The First-State Encoding<a class="headerlink" href="#The-First-State-Encoding" title="Permalink to this heading"></a></h4>
+<p>In the <strong>first-state encoding</strong> only the information (control flow and payload) of the first event is retained. This is achieved with the <code class="docutils literal notranslate"><span class="pre">Declare4Py.Encodings.Static.Static</span></code> class by setting the categorical and numeric attributes.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoder</span> <span class="o">=</span> <span class="n">Static</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">cat_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;concept:name&#39;</span><span class="p">,</span> <span class="s1">&#39;org:group&#39;</span><span class="p">],</span> <span class="n">num_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CRP&#39;</span><span class="p">])</span>
+<span class="n">enc_df</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">enc_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CRP</th>
+      <th>concept:name_CRP</th>
+      <th>concept:name_ER Registration</th>
+      <th>concept:name_ER Sepsis Triage</th>
+      <th>concept:name_ER Triage</th>
+      <th>concept:name_IV Liquid</th>
+      <th>concept:name_Leucocytes</th>
+      <th>org:group_A</th>
+      <th>org:group_B</th>
+      <th>org:group_C</th>
+      <th>org:group_L</th>
+    </tr>
+    <tr>
+      <th>case:concept:name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>21.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AA</th>
+      <td>23.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AAA</th>
+      <td>68.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AB</th>
+      <td>48.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ABA</th>
+      <td>78.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="The-Second-to-Last-State-Encoding">
+<h4>The Second-to-Last-State Encoding<a class="headerlink" href="#The-Second-to-Last-State-Encoding" title="Permalink to this heading"></a></h4>
+<p>In the <strong>second-to-last-state encoding</strong> only the information (control flow and payload) of the second-to-last event is retained. This is achieved with the <code class="docutils literal notranslate"><span class="pre">Declare4Py.Encodings.PreviousState.PreviousState</span></code> class by setting the categorical and numeric attributes.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoder</span> <span class="o">=</span> <span class="n">PreviousState</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">cat_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;concept:name&#39;</span><span class="p">,</span> <span class="s1">&#39;org:group&#39;</span><span class="p">],</span> <span class="n">num_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CRP&#39;</span><span class="p">])</span>
+<span class="n">enc_df</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">enc_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CRP</th>
+      <th>concept:name_Admission NC</th>
+      <th>concept:name_CRP</th>
+      <th>concept:name_ER Sepsis Triage</th>
+      <th>concept:name_ER Triage</th>
+      <th>concept:name_IV Antibiotics</th>
+      <th>concept:name_IV Liquid</th>
+      <th>concept:name_LacticAcid</th>
+      <th>concept:name_Leucocytes</th>
+      <th>concept:name_Release A</th>
+      <th>...</th>
+      <th>org:group_M</th>
+      <th>org:group_N</th>
+      <th>org:group_O</th>
+      <th>org:group_P</th>
+      <th>org:group_Q</th>
+      <th>org:group_R</th>
+      <th>org:group_S</th>
+      <th>org:group_T</th>
+      <th>org:group_U</th>
+      <th>org:group_V</th>
+    </tr>
+    <tr>
+      <th>case:concept:name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AA</th>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AAA</th>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AB</th>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ABA</th>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 36 columns</p>
+</div></div>
+</div>
+</section>
+<section id="The-Last-State-Encoding">
+<h4>The Last-State Encoding<a class="headerlink" href="#The-Last-State-Encoding" title="Permalink to this heading"></a></h4>
+<p>In the <strong>last-state encoding</strong> only the information (control flow and payload) of the last event is retained. This is achieved with the <code class="docutils literal notranslate"><span class="pre">Declare4Py.Encodings.LastState.LastState</span></code> class by setting the categorical and numeric attributes.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoder</span> <span class="o">=</span> <span class="n">LastState</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">cat_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;concept:name&#39;</span><span class="p">,</span> <span class="s1">&#39;org:group&#39;</span><span class="p">],</span> <span class="n">num_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CRP&#39;</span><span class="p">])</span>
+<span class="n">enc_df</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">enc_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CRP</th>
+      <th>concept:name_Admission NC</th>
+      <th>concept:name_CRP</th>
+      <th>concept:name_ER Sepsis Triage</th>
+      <th>concept:name_ER Triage</th>
+      <th>concept:name_IV Antibiotics</th>
+      <th>concept:name_IV Liquid</th>
+      <th>concept:name_LacticAcid</th>
+      <th>concept:name_Leucocytes</th>
+      <th>concept:name_Release A</th>
+      <th>...</th>
+      <th>org:group_B</th>
+      <th>org:group_C</th>
+      <th>org:group_D</th>
+      <th>org:group_E</th>
+      <th>org:group_F</th>
+      <th>org:group_G</th>
+      <th>org:group_I</th>
+      <th>org:group_L</th>
+      <th>org:group_R</th>
+      <th>org:group_V</th>
+    </tr>
+    <tr>
+      <th>case:concept:name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>6.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AA</th>
+      <td>23.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AAA</th>
+      <td>68.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AB</th>
+      <td>48.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ABA</th>
+      <td>140.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 27 columns</p>
+</div></div>
+</div>
+</section>
+</section>
+<section id="The-Ngram-encoding">
+<h3>The Ngram encoding<a class="headerlink" href="#The-Ngram-encoding" title="Permalink to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoder</span> <span class="o">=</span> <span class="n">Ngram</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span> <span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">act_col</span><span class="o">=</span><span class="s1">&#39;concept:name&#39;</span><span class="p">)</span>
+<span class="n">enc_df</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">enc_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Leucocytes|Release D</th>
+      <th>CRP|Release D</th>
+      <th>CRP|IV Liquid</th>
+      <th>Admission NC|Release C</th>
+      <th>Leucocytes|Release A</th>
+      <th>IV Antibiotics|Admission NC</th>
+      <th>ER Sepsis Triage|Admission NC</th>
+      <th>CRP|LacticAcid</th>
+      <th>ER Triage|CRP</th>
+      <th>LacticAcid|IV Liquid</th>
+      <th>...</th>
+      <th>CRP|IV Antibiotics</th>
+      <th>Admission NC|CRP</th>
+      <th>ER Sepsis Triage|ER Triage</th>
+      <th>Leucocytes|Release C</th>
+      <th>Release A|CRP</th>
+      <th>ER Triage|IV Antibiotics</th>
+      <th>Leucocytes|Release B</th>
+      <th>Leucocytes|Leucocytes</th>
+      <th>CRP|Release E</th>
+      <th>ER Sepsis Triage|LacticAcid</th>
+    </tr>
+    <tr>
+      <th>case:concept:name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.2401</td>
+      <td>0.0</td>
+      <td>1.214637</td>
+      <td>0.70</td>
+      <td>0.343000</td>
+      <td>0.70</td>
+      <td>0.285269</td>
+      <td>0.343</td>
+      <td>...</td>
+      <td>0.16807</td>
+      <td>1.188124</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.343000</td>
+      <td>0.0</td>
+      <td>11.127531</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.2401</td>
+      <td>0.0</td>
+      <td>0.082354</td>
+      <td>0.70</td>
+      <td>0.343000</td>
+      <td>0.70</td>
+      <td>0.798002</td>
+      <td>0.343</td>
+      <td>...</td>
+      <td>0.16807</td>
+      <td>1.190000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.117649</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.7000</td>
+      <td>0.0</td>
+      <td>0.758348</td>
+      <td>1.19</td>
+      <td>0.285719</td>
+      <td>0.00</td>
+      <td>0.403127</td>
+      <td>0.000</td>
+      <td>...</td>
+      <td>0.49000</td>
+      <td>1.241170</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.168070</td>
+      <td>0.0</td>
+      <td>3.665297</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.3430</td>
+      <td>0.0</td>
+      <td>0.607649</td>
+      <td>0.70</td>
+      <td>0.117649</td>
+      <td>0.70</td>
+      <td>0.530354</td>
+      <td>0.490</td>
+      <td>...</td>
+      <td>0.24010</td>
+      <td>0.490000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.117649</td>
+      <td>0.0</td>
+      <td>2.240100</td>
+      <td>0.0</td>
+      <td>0.4900</td>
+    </tr>
+    <tr>
+      <th>E</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.00</td>
+      <td>0.000000</td>
+      <td>0.49</td>
+      <td>0.343000</td>
+      <td>0.000</td>
+      <td>...</td>
+      <td>0.34300</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.117649</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.2401</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 115 columns</p>
+</div></div>
+</div>
+</section>
+<section id="The-Declare-encoding">
+<h3>The Declare encoding<a class="headerlink" href="#The-Declare-encoding" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoder</span> <span class="o">=</span> <span class="n">DeclareTransformer</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span> <span class="p">,</span> <span class="n">v</span><span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">act_col</span><span class="o">=</span><span class="s1">&#39;concept:name&#39;</span><span class="p">)</span>
+<span class="n">enc_df</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">enc_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Encoding-combinations">
+<h2>Encoding combinations<a class="headerlink" href="#Encoding-combinations" title="Permalink to this heading"></a></h2>
+<section id="The-Index-Latest-Payload-Encoding">
+<h3>The Index-Latest-Payload Encoding<a class="headerlink" href="#The-Index-Latest-Payload-Encoding" title="Permalink to this heading"></a></h3>
+<p>The index latest-payload encoding adds the lat- est encoding to the simple-index encoding.</p>
+<p>combination of a index-based encoding with a static one (the last state)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">last_state_encoder</span> <span class="o">=</span> <span class="n">LastStateTransformer</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">cat_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;org:group&#39;</span><span class="p">],</span> <span class="n">num_cols</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">latest_df</span> <span class="o">=</span> <span class="n">last_state_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">simple_index_encoder</span> <span class="o">=</span> <span class="n">IndexBasedTransformer</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">cat_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;concept:name&#39;</span><span class="p">],</span> <span class="n">num_cols</span><span class="o">=</span><span class="p">[],</span> <span class="n">create_dummies</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">simple_df</span> <span class="o">=</span> <span class="n">simple_index_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">index_latest_payload_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">latest_df</span><span class="p">,</span> <span class="n">simple_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">index_latest_payload_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/var/folders/5w/6k152p214xbc6ghcldxtvf2r0000gq/T/ipykernel_81008/619914427.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>last_state_encoder <span class="ansi-blue-fg">=</span> LastStateTransformer<span class="ansi-blue-fg">(</span>case_id_col<span class="ansi-blue-fg">=</span>case_id_key<span class="ansi-blue-fg">,</span> cat_cols<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;org:group&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> num_cols<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> latest_df <span class="ansi-blue-fg">=</span> last_state_encoder<span class="ansi-blue-fg">.</span>fit_transform<span class="ansi-blue-fg">(</span>df<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> simple_index_encoder <span class="ansi-blue-fg">=</span> IndexBasedTransformer<span class="ansi-blue-fg">(</span>case_id_col<span class="ansi-blue-fg">=</span>case_id_key<span class="ansi-blue-fg">,</span> cat_cols<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;concept:name&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> num_cols<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> create_dummies<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> simple_df <span class="ansi-blue-fg">=</span> simple_index_encoder<span class="ansi-blue-fg">.</span>fit_transform<span class="ansi-blue-fg">(</span>df<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;LastStateTransformer&#39; is not defined
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="A-Machine-Learning-pipeline">
+<h2>A Machine Learning pipeline<a class="headerlink" href="#A-Machine-Learning-pipeline" title="Permalink to this heading"></a></h2>
+<p>Esempio di pipeline per variant discovery basata su CF</p>
+<section id="TODO:-mettere-in-un-df-trace-id-e-label">
+<h3>TODO: mettere in un df trace id e label<a class="headerlink" href="#TODO:-mettere-in-un-df-trace-id-e-label" title="Permalink to this heading"></a></h3>
+</section>
+<section id="TODO-fare-clustering-su-varianti">
+<h3>TODO fare clustering su varianti<a class="headerlink" href="#TODO-fare-clustering-su-varianti" title="Permalink to this heading"></a></h3>
+</section>
+<section id="TODO-mostra-2-tracce-con-stesse-label-hanno-variante-simile,-e-due-classi-con-lbl-diversa-hanno-diverse-varianti">
+<h3>TODO mostra 2 tracce con stesse label hanno variante simile, e due classi con lbl diversa hanno diverse varianti<a class="headerlink" href="#TODO-mostra-2-tracce-con-stesse-label-hanno-variante-simile,-e-due-classi-con-lbl-diversa-hanno-diverse-varianti" title="Permalink to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+
+<span class="n">variants_discovery</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;vect&#39;</span><span class="p">,</span> <span class="n">Aggregate</span><span class="p">(</span><span class="n">case_id_col</span><span class="o">=</span><span class="n">case_id_key</span><span class="p">,</span> <span class="n">cat_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;concept:name&#39;</span><span class="p">],</span> <span class="n">num_cols</span><span class="o">=</span><span class="p">[],</span> <span class="n">boolean</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
+                              <span class="p">(</span><span class="s1">&#39;kmeans&#39;</span><span class="p">,</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">))])</span>
+<span class="n">variants_discovery</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">discover_variants</span><span class="p">[</span><span class="s1">&#39;kmeans&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">labels_</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0
+2
+0
+2
+0
+0
+2
+0
+0
+0
+2
+0
+0
+1
+0
+0
+0
+0
+0
+0
+1
+2
+1
+0
+0
+1
+1
+2
+1
+1
+2
+0
+0
+2
+2
+0
+0
+2
+1
+1
+0
+0
+0
+0
+1
+0
+1
+2
+0
+0
+0
+2
+0
+2
+1
+0
+0
+0
+2
+0
+0
+0
+0
+0
+0
+0
+2
+0
+0
+1
+1
+1
+0
+0
+2
+0
+0
+0
+0
+0
+1
+0
+0
+2
+2
+0
+0
+2
+2
+2
+1
+0
+0
+0
+0
+0
+2
+0
+0
+0
+1
+2
+1
+1
+0
+1
+2
+0
+2
+2
+1
+0
+2
+0
+0
+2
+0
+0
+0
+0
+0
+2
+2
+0
+2
+0
+0
+0
+0
+0
+1
+0
+1
+0
+1
+1
+0
+2
+0
+1
+0
+1
+0
+0
+0
+0
+0
+2
+2
+1
+1
+2
+0
+0
+2
+0
+0
+1
+2
+2
+0
+0
+0
+0
+2
+0
+1
+2
+0
+0
+0
+0
+0
+1
+0
+0
+1
+1
+0
+0
+0
+2
+0
+0
+0
+2
+0
+0
+0
+0
+0
+2
+1
+0
+2
+0
+2
+0
+0
+0
+2
+0
+0
+2
+1
+0
+2
+0
+2
+1
+1
+0
+2
+0
+0
+0
+2
+1
+0
+2
+0
+0
+2
+1
+0
+0
+0
+1
+2
+1
+0
+0
+2
+2
+0
+1
+1
+2
+1
+0
+1
+2
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+1
+0
+0
+0
+0
+0
+2
+2
+0
+0
+2
+0
+0
+2
+1
+0
+0
+2
+1
+2
+0
+0
+0
+0
+1
+1
+0
+0
+2
+2
+2
+0
+1
+1
+1
+0
+0
+2
+1
+2
+0
+0
+0
+0
+0
+2
+0
+0
+0
+0
+0
+0
+0
+0
+2
+2
+0
+0
+1
+1
+0
+0
+0
+1
+0
+0
+2
+0
+1
+0
+1
+0
+0
+0
+0
+2
+0
+0
+0
+0
+1
+1
+0
+1
+0
+0
+2
+1
+0
+0
+0
+0
+0
+0
+2
+1
+2
+0
+0
+0
+1
+2
+1
+0
+0
+0
+2
+0
+0
+0
+2
+0
+2
+0
+1
+0
+0
+1
+2
+2
+0
+2
+0
+2
+0
+2
+2
+1
+0
+1
+0
+1
+2
+2
+0
+1
+0
+2
+0
+0
+1
+0
+0
+1
+0
+1
+2
+0
+0
+0
+0
+0
+0
+0
+0
+2
+0
+0
+1
+0
+0
+0
+0
+0
+1
+0
+2
+0
+0
+0
+1
+0
+0
+0
+0
+0
+1
+0
+0
+1
+0
+0
+2
+0
+0
+0
+0
+1
+2
+0
+0
+2
+1
+0
+0
+1
+0
+0
+1
+2
+2
+2
+0
+2
+0
+0
+2
+2
+1
+0
+2
+2
+1
+0
+0
+0
+2
+2
+0
+0
+0
+1
+0
+1
+0
+1
+2
+2
+0
+0
+0
+0
+0
+1
+0
+0
+1
+0
+1
+0
+1
+1
+0
+0
+1
+0
+2
+0
+0
+1
+0
+1
+2
+1
+0
+2
+0
+0
+1
+0
+0
+0
+1
+1
+2
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+0
+1
+0
+0
+2
+1
+0
+1
+2
+0
+0
+0
+1
+0
+0
+2
+1
+2
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+0
+0
+0
+0
+0
+1
+2
+1
+0
+0
+0
+0
+0
+2
+0
+0
+2
+0
+0
+1
+0
+1
+2
+2
+1
+2
+1
+2
+1
+0
+0
+0
+1
+0
+0
+1
+0
+0
+1
+0
+0
+0
+0
+0
+2
+0
+0
+0
+0
+0
+2
+0
+0
+1
+2
+1
+1
+2
+0
+2
+1
+1
+2
+0
+2
+0
+0
+0
+0
+0
+2
+2
+0
+0
+2
+2
+0
+0
+1
+0
+2
+0
+1
+0
+1
+1
+1
+0
+0
+2
+0
+0
+1
+2
+2
+1
+2
+2
+0
+0
+0
+0
+2
+1
+0
+2
+0
+1
+0
+2
+1
+0
+1
+0
+0
+2
+0
+0
+1
+2
+0
+0
+0
+0
+0
+0
+1
+0
+2
+0
+2
+0
+2
+1
+0
+1
+1
+2
+1
+0
+0
+0
+2
+2
+2
+1
+2
+2
+0
+0
+1
+1
+0
+0
+2
+2
+0
+1
+1
+2
+1
+2
+2
+1
+2
+0
+0
+0
+0
+1
+0
+1
+0
+0
+0
+0
+1
+0
+0
+2
+0
+0
+0
+0
+0
+0
+0
+1
+2
+0
+0
+0
+2
+0
+0
+2
+1
+0
+0
+0
+0
+2
+0
+1
+1
+0
+0
+0
+2
+2
+0
+0
+0
+2
+2
+1
+0
+0
+0
+0
+0
+2
+0
+1
+0
+1
+1
+0
+0
+0
+0
+1
+1
+0
+0
+1
+0
+0
+2
+2
+0
+0
+0
+0
+0
+1
+2
+1
+1
+0
+0
+0
+1
+2
+1
+0
+1
+2
+0
+0
+1
+2
+0
+0
+1
+0
+2
+2
+0
+1
+1
+0
+0
+0
+2
+0
+0
+2
+0
+2
+0
+1
+1
+0
+0
+2
+0
+0
+1
+0
+0
+2
+2
+2
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+2
+0
+0
+0
+2
+1
+1
+0
+0
+0
+1
+0
+2
+0
+2
+0
+1
+0
+0
+2
+2
+2
+0
+0
+0
+1
+0
+1
+0
+1
+0
+1
+0
+1
+1
+0
+0
+1
+0
+0
+2
+0
+0
+0
+2
+1
+0
+1
+1
+2
+0
+2
+1
+1
+0
+1
+2
+0
+0
+0
+2
+1
+0
+0
+0
+0
+2
+1
+2
+0
+1
+0
+2
+0
+2
+0
+0
+1
+2
+0
+0
+0
+2
+0
+0
+2
+0
+1
+0
+0
+1
+0
+0
+2
+0
+1
+0
+2
+0
+0
+1
+2
+0
+2
+2
+0
+2
+0
+2
+2
+1
+0
+0
+0
+2
+2
+2
+0
+0
+0
+0
+0
+2
+0
+1
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+1
+1
+0
+2
+0
+0
+0
+0
+1
+0
+1
+0
+0
+0
+1
+2
+0
+0
+0
+2
+2
+1
+0
+2
+0
+0
+0
+2
+0
+0
+0
+0
+2
+0
+0
+0
+0
+0
+0
+0
+2
+1
+0
+0
+0
+0
+0
+2
+0
+0
+0
+0
+2
+0
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Declare_Query_Checking.html" class="btn btn-neutral float-left" title="Query Checking in Declare4Py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Log_filtering.html" class="btn btn-neutral float-right" title="Filtering a Log" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, diell.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

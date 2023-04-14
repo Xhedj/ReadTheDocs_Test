@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generate pm4py log using ASP Generator &mdash; Test Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Generate pm4py log using ASP Generator" href="asp_generator_variations.html" />
+    <link rel="prev" title="Generate pm4py log using ASP Generator" href="asp_generator_distribution.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Test Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Site%20navigation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../gettingstarted.html">Getting Started</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../gettingstarted.html#tutorials">Tutorials</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Declare_Conformance_Checking.html">Conformance Checking (DECLARE Formulas) in Declare4Py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Declare_Model_Discovery.html">DECLARE Model Discovery in Declare4Py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Declare_Query_Checking.html">Query Checking in Declare4Py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Log_Encodings.html">Log Encodings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Log_filtering.html">Filtering a Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Managing_Event_Logs.html">Managing Event Logs with Declare4Py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../system_overview.html">Declare4Py Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asp_generator_activation_conditions.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asp_generator_base.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asp_generator_distribution.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asp_generator_variations.html">Generate pm4py log using ASP Generator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../creating.html">Creating a new doc file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Example.html">Welcome to the jupyter demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../collaborators.html">Collaborators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute.html">Contribute to Declare4Py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../test.html">test package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Test Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../gettingstarted.html">Getting Started</a></li>
+      <li class="breadcrumb-item active">Generate pm4py log using ASP Generator</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/tutorials/log_generator/asp_generator_pos_neg_traces.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Generate-pm4py-log-using-ASP-Generator">
+<h1>Generate pm4py log using ASP Generator<a class="headerlink" href="#Generate-pm4py-log-using-ASP-Generator" title="Permalink to this heading"></a></h1>
+<p>ASP log generator uses the decl model which converts the model into abudction logic programming and pass to the clingo. Clingo generates the output which is turned into the pm4py log or can be created a .xes file.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python<span class="w"> </span>--version
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Python 3.11.2
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">SCRIPT_DIR</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;src&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">SCRIPT_DIR</span><span class="p">))</span>
+
+<span class="kn">from</span> <span class="nn">src.declare4py.pm_tasks.log_generation.asp.asp_generator</span> <span class="kn">import</span> <span class="n">AspGenerator</span>
+<span class="kn">from</span> <span class="nn">src.declare4py.process_models.decl_model</span> <span class="kn">import</span> <span class="n">DeclModel</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In [2], line 9</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> SCRIPT_DIR <span style="color: rgb(98,98,98)">=</span> pathlib<span style="color: rgb(98,98,98)">.</span>Path(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">..</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">..</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">src</span><span style="color: rgb(175,0,0)">&#34;</span>)<span style="color: rgb(98,98,98)">.</span>resolve()
+<span class="ansi-green-intense-fg ansi-bold">      7</span> sys<span style="color: rgb(98,98,98)">.</span>path<span style="color: rgb(98,98,98)">.</span>append(os<span style="color: rgb(98,98,98)">.</span>path<span style="color: rgb(98,98,98)">.</span>dirname(SCRIPT_DIR))
+<span class="ansi-green-fg">----&gt; 9</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">src</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">declare4py</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">pm_tasks</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">log_generation</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">asp</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">asp_generator</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> AspGenerator
+<span class="ansi-green-intense-fg ansi-bold">     10</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">src</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">declare4py</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">process_models</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">decl_model</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> DeclModel
+
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;src&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decl_model_1</span> <span class="o">=</span> <span class="s2">&quot;decl_files/Response.decl&quot;</span>
+<span class="n">decl_model_2</span> <span class="o">=</span> <span class="s2">&quot;decl_files/MikeModel.decl&quot;</span>
+<span class="n">decl_model_3</span> <span class="o">=</span> <span class="s2">&quot;decl_files/reference10.decl&quot;</span>
+<span class="n">decl_model_4</span> <span class="o">=</span> <span class="s2">&quot;diagonisis.decl&quot;</span>
+<span class="n">decl_folder</span> <span class="o">=</span> <span class="s2">&quot;decl_files&quot;</span>
+
+<span class="n">decl_filename</span> <span class="o">=</span> <span class="n">decl_model_4</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">decl_filename</span><span class="si">}</span><span class="s2">.xes&quot;</span><span class="p">)</span>
+<span class="n">decl_file</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">decl_folder</span><span class="p">,</span> <span class="n">decl_model_4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create Declare model by reading declare model from a file.</span>
+
+<span class="n">model</span><span class="p">:</span> <span class="n">DeclModel</span> <span class="o">=</span> <span class="n">DeclModel</span><span class="p">()</span><span class="o">.</span><span class="n">parse_from_file</span><span class="p">(</span><span class="n">decl_file</span><span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In [4], line 3</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># Create Declare model by reading declare model from a file.</span>
+<span class="ansi-green-fg">----&gt; 3</span> model: DeclModel <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">DeclModel</span>()<span style="color: rgb(98,98,98)">.</span>parse_from_file(decl_file)
+
+<span class="ansi-red-fg">NameError</span>: name &#39;DeclModel&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#general Setting</span>
+
+<span class="c1"># Number of traces that should be generated</span>
+<span class="n">num_of_traces</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># Minimum and maximum number of events a trace can contain</span>
+<span class="p">(</span><span class="n">num_min_events</span><span class="p">,</span> <span class="n">num_max_events</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initializing ASP generator with default distributor which is uniform.</span>
+
+<span class="c1">#logging.basicConfig(level=logging.DEBUG)</span>
+<span class="n">asp</span> <span class="o">=</span> <span class="n">AspGenerator</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">num_of_traces</span><span class="p">,</span>
+    <span class="n">num_min_events</span><span class="p">,</span>
+    <span class="n">num_max_events</span><span class="p">,</span>
+    <span class="n">encode_decl_model</span><span class="o">=</span><span class="kc">True</span>  <span class="c1">#</span>
+<span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In [6], line 4</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># Initializing ASP generator with default distributor which is uniform.</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(95,135,135)">#logging.basicConfig(level=logging.DEBUG)</span>
+<span class="ansi-green-fg">----&gt; 4</span> asp <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">AspGenerator</span>(
+<span class="ansi-green-intense-fg ansi-bold">      5</span>     model,
+<span class="ansi-green-intense-fg ansi-bold">      6</span>     num_of_traces,
+<span class="ansi-green-intense-fg ansi-bold">      7</span>     num_min_events,
+<span class="ansi-green-intense-fg ansi-bold">      8</span>     num_max_events,
+<span class="ansi-green-intense-fg ansi-bold">      9</span>     encode_decl_model<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">True</span>  <span style="color: rgb(95,135,135)">#</span>
+<span class="ansi-green-intense-fg ansi-bold">     10</span> )
+
+<span class="ansi-red-fg">NameError</span>: name &#39;AspGenerator&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Violates some constraints for declare model</span>
+
+<span class="c1"># NOTE: this examples or cell is only configured according to the `decl_model_4` file</span>
+
+<span class="c1"># You can add constraint templates as a string array to be violated from the declared model lines.</span>
+<span class="c1"># You can use the flag `violate_all_constraints_in_subset` in order to tell clingo, to violate all</span>
+<span class="c1"># templates or some of them( will be decided by clingo). The second param = True means</span>
+<span class="c1"># all the contstraint should be violate which are available in the subset (which you add in the array string/int).</span>
+
+
+
+<span class="n">asp</span><span class="o">.</span><span class="n">set_constraints_to_violate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="p">[</span>
+    <span class="c1"># &quot;Existence[act2] | |&quot;,</span>
+    <span class="c1"># &quot;Existence[act4] | |&quot;</span>
+    <span class="s2">&quot;Response[Driving_Test, Resit] |A.Grade&lt;=2 | |&quot;</span>
+    <span class="c1"># &quot;Chain Response[Admission IC, Admission NC] |A.org:group is J |T.org:group is J |61534,61534,s&quot;,</span>
+    <span class="c1"># &quot;Chain Response[LacticAcid, Leucocytes] |A.LacticAcid &lt;= 0.8 |T.Leucocytes &gt;= 13.8 |0,2778,m&quot;,</span>
+<span class="p">])</span>
+
+
+<span class="c1"># the deference between these two methods is that you can decide if you want to pass the constraint</span>
+<span class="c1"># template list of strings or the indexes of constraint templates generated by model itself in order</span>
+
+<span class="c1"># asp.set_constraints_to_violate_by_template_index(1, True, [2])</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In [7], line 12</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># Violates some constraints for declare model</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(95,135,135)"># NOTE: this examples or cell is only configured according to the `decl_model_4` file</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span> <span style="color: rgb(95,135,135)"># templates or some of them( will be decided by clingo). The second param = True means</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span> <span style="color: rgb(95,135,135)"># all the contstraint should be violate which are available in the subset (which you add in the array string/int).</span>
+<span class="ansi-green-fg">---&gt; 12</span> <span class="ansi-yellow-bg">asp</span><span style="color: rgb(98,98,98)">.</span>set_constraints_to_violate(<span style="color: rgb(98,98,98)">1</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>, [
+<span class="ansi-green-intense-fg ansi-bold">     13</span>     <span style="color: rgb(95,135,135)"># &#34;Existence[act2] | |&#34;,</span>
+<span class="ansi-green-intense-fg ansi-bold">     14</span>     <span style="color: rgb(95,135,135)"># &#34;Existence[act4] | |&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     15</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Response[Driving_Test, Resit] |A.Grade&lt;=2 | |</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     16</span>     <span style="color: rgb(95,135,135)"># &#34;Chain Response[Admission IC, Admission NC] |A.org:group is J |T.org:group is J |61534,61534,s&#34;,</span>
+<span class="ansi-green-intense-fg ansi-bold">     17</span>     <span style="color: rgb(95,135,135)"># &#34;Chain Response[LacticAcid, Leucocytes] |A.LacticAcid &lt;= 0.8 |T.Leucocytes &gt;= 13.8 |0,2778,m&#34;,</span>
+<span class="ansi-green-intense-fg ansi-bold">     18</span> ])
+<span class="ansi-green-intense-fg ansi-bold">     21</span> <span style="color: rgb(95,135,135)"># the deference between these two methods is that you can decide if you want to pass the constraint</span>
+<span class="ansi-green-intense-fg ansi-bold">     22</span> <span style="color: rgb(95,135,135)"># template list of strings or the indexes of constraint templates generated by model itself in order</span>
+<span class="ansi-green-intense-fg ansi-bold">     23</span>
+<span class="ansi-green-intense-fg ansi-bold">     24</span> <span style="color: rgb(95,135,135)"># asp.set_constraints_to_violate_by_template_index(1, True, [2]) </span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;asp&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate the traces and parse the result produced by clingo</span>
+<span class="n">asp</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>  <span class="c1"># Run accets 1 optional value whether to create file for the ASP generated from given declare model</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In [8], line 2</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># Generate the traces and parse the result produced by clingo</span>
+<span class="ansi-green-fg">----&gt; 2</span> <span class="ansi-yellow-bg">asp</span><span style="color: rgb(98,98,98)">.</span>run()  <span style="color: rgb(95,135,135)"># Run accets 1 optional value whether to create file for the ASP generated from given declare model</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;asp&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save file to xes</span>
+<span class="n">asp</span><span class="o">.</span><span class="n">to_xes</span><span class="p">(</span><span class="n">output_file</span><span class="o">.</span><span class="n">as_posix</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In [9], line 2</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># Save file to xes</span>
+<span class="ansi-green-fg">----&gt; 2</span> <span class="ansi-yellow-bg">asp</span><span style="color: rgb(98,98,98)">.</span>to_xes(output_file<span style="color: rgb(98,98,98)">.</span>as_posix())
+
+<span class="ansi-red-fg">NameError</span>: name &#39;asp&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="asp_generator_distribution.html" class="btn btn-neutral float-left" title="Generate pm4py log using ASP Generator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="asp_generator_variations.html" class="btn btn-neutral float-right" title="Generate pm4py log using ASP Generator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, diell.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

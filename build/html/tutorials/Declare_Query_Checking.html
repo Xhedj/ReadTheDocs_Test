@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Query Checking in Declare4Py &mdash; Test Documentation 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Log Encodings" href="Log_Encodings.html" />
+    <link rel="prev" title="DECLARE Model Discovery in Declare4Py" href="Declare_Model_Discovery.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Test Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Site%20navigation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../gettingstarted.html">Getting Started</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../gettingstarted.html#tutorials">Tutorials</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Declare_Conformance_Checking.html">Conformance Checking (DECLARE Formulas) in Declare4Py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Declare_Model_Discovery.html">DECLARE Model Discovery in Declare4Py</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Query Checking in Declare4Py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Log_Encodings.html">Log Encodings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Log_filtering.html">Filtering a Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Managing_Event_Logs.html">Managing Event Logs with Declare4Py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="system_overview.html">Declare4Py Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_activation_conditions.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_base.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_distribution.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_pos_neg_traces.html">Generate pm4py log using ASP Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_generator/asp_generator_variations.html">Generate pm4py log using ASP Generator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../creating.html">Creating a new doc file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Example.html">Welcome to the jupyter demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../collaborators.html">Collaborators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute to Declare4Py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">test package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Test Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../gettingstarted.html">Getting Started</a></li>
+      <li class="breadcrumb-item active">Query Checking in Declare4Py</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/Declare_Query_Checking.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Query-Checking-in-Declare4Py">
+<h1>Query Checking in Declare4Py<a class="headerlink" href="#Query-Checking-in-Declare4Py" title="Permalink to this heading"></a></h1>
+<p>This tutorial explains how to perform the query checking of a DECLARE constraint in a log and how to browse the results. We first import the classes <code class="docutils literal notranslate"><span class="pre">DeclareQueryChecker</span></code> and <code class="docutils literal notranslate"><span class="pre">DeclareResultsBrowser</span></code> and the log.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+
+<span class="n">SCRIPT_DIR</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;src&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">SCRIPT_DIR</span><span class="p">))</span>
+
+<span class="kn">from</span> <span class="nn">src.Declare4Py.ProcessModels.DeclareModel</span> <span class="kn">import</span> <span class="n">DeclareModel</span>
+<span class="kn">from</span> <span class="nn">src.Declare4Py.ProcessMiningTasks.QueryChecking.DeclareQueryChecker</span> <span class="kn">import</span> <span class="n">DeclareQueryChecker</span>
+<span class="kn">from</span> <span class="nn">src.Declare4Py.ProcessMiningTasks.QueryChecking.DeclareResultsBrowser</span> <span class="kn">import</span> <span class="n">DeclareResultsBrowser</span>
+<span class="kn">from</span> <span class="nn">src.Declare4Py.D4PyEventLog</span> <span class="kn">import</span> <span class="n">D4PyEventLog</span>
+
+<span class="n">log_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;tests&quot;</span><span class="p">,</span> <span class="s2">&quot;Sepsis Cases.xes.gz&quot;</span><span class="p">)</span>
+<span class="n">event_log</span> <span class="o">=</span> <span class="n">D4PyEventLog</span><span class="p">(</span><span class="n">case_name</span><span class="o">=</span><span class="s2">&quot;case:concept:name&quot;</span><span class="p">)</span>
+<span class="n">event_log</span><span class="o">.</span><span class="n">parse_xes_log</span><span class="p">(</span><span class="n">log_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "24fb176847114c8c8a05e0c0b2e5558d", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">DeclareQueryChecker</span></code> class takes as input: - the event log; - the boolean parameter <code class="docutils literal notranslate"><span class="pre">consider_vacuity=true</span></code> that means that vacuously satisfied traces are considered as satisfied, violated otherwise. - The query/setting parameters <code class="docutils literal notranslate"><span class="pre">template</span></code>, <code class="docutils literal notranslate"><span class="pre">activation</span></code>, <code class="docutils literal notranslate"><span class="pre">target</span></code>, <code class="docutils literal notranslate"><span class="pre">activation_condition</span></code>, <code class="docutils literal notranslate"><span class="pre">target_condition</span></code> and <code class="docutils literal notranslate"><span class="pre">time_condition</span></code> that set the parameters of the DECLARE constraints and the variables to ask. If a parameter is not set then it is treated as a variable to ask. -
+The float <code class="docutils literal notranslate"><span class="pre">min_support</span></code> parameter sets the support to be satisfied in the log by the variable assignments. - the boolean parameter <code class="docutils literal notranslate"><span class="pre">return_first</span></code>. If false it returns all the variables assignments that satisfy the support in the log. Otherwise, it returns only one variables assignment (the first) that satisfy the support in the log. This saves computational time when one is only interested in the existence of a variable assignment with a given support.</p>
+<p>Here below we compute the assignments for the target by setting <code class="docutils literal notranslate"><span class="pre">template_str='Chain</span> <span class="pre">Response'</span></code>, <code class="docutils literal notranslate"><span class="pre">activation='IV</span> <span class="pre">Antibiotics'</span></code>, <code class="docutils literal notranslate"><span class="pre">act_cond='A.org:group</span> <span class="pre">is</span> <span class="pre">A'</span></code> and <code class="docutils literal notranslate"><span class="pre">min_support=0.2</span></code>:</p>
+<p>After this setting, we execute the method <code class="docutils literal notranslate"><span class="pre">run</span></code> of the <code class="docutils literal notranslate"><span class="pre">DeclareQueryChecker</span></code> class.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query_checker</span> <span class="o">=</span> <span class="n">DeclareQueryChecker</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="n">event_log</span><span class="p">,</span> <span class="n">consider_vacuity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="s1">&#39;Chain Response&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;IV Antibiotics&#39;</span><span class="p">,</span> <span class="n">activation_condition</span><span class="o">=</span><span class="s1">&#39;A.org:group is A&#39;</span><span class="p">,</span> <span class="n">min_support</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">return_first</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">query_check_res</span><span class="p">:</span> <span class="n">DeclareResultsBrowser</span> <span class="o">=</span> <span class="n">query_checker</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The query checking results can be filtered with the <code class="docutils literal notranslate"><span class="pre">filter_query_checking()</span></code> function whose parameter <code class="docutils literal notranslate"><span class="pre">queries</span></code> takes as input a list of variables to ask. In the above example, we set the template and activation and ask for the targets. The output of <code class="docutils literal notranslate"><span class="pre">filter_query_checking()</span></code> is a Pandas dataframe.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query_check_res</span><span class="o">.</span><span class="n">filter_query_checking</span><span class="p">(</span><span class="n">queries</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;template&#39;</span><span class="p">,</span> <span class="s1">&#39;activation&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="s1">&#39;activation_condition&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>template</th>
+      <th>activation</th>
+      <th>target</th>
+      <th>activation_condition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Chain Response</td>
+      <td>IV Antibiotics</td>
+      <td>Admission NC</td>
+      <td>A.org:group is A</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>In the following example we compute the assignments both for the activation and the target by setting <code class="docutils literal notranslate"><span class="pre">template_str='Response'</span></code> and <code class="docutils literal notranslate"><span class="pre">min_support=0.8</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query_checker</span> <span class="o">=</span> <span class="n">DeclareQueryChecker</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="n">event_log</span><span class="p">,</span> <span class="n">consider_vacuity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="s1">&#39;Response&#39;</span><span class="p">,</span> <span class="n">min_support</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">return_first</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">query_check_res</span><span class="p">:</span> <span class="n">DeclareResultsBrowser</span> <span class="o">=</span> <span class="n">query_checker</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+<span class="n">query_check_res</span><span class="o">.</span><span class="n">filter_query_checking</span><span class="p">(</span><span class="n">queries</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;template&#39;</span><span class="p">,</span> <span class="s1">&#39;activation&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>template</th>
+      <th>activation</th>
+      <th>target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Response</td>
+      <td>ER Registration</td>
+      <td>CRP</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Response</td>
+      <td>ER Registration</td>
+      <td>LacticAcid</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Response</td>
+      <td>ER Registration</td>
+      <td>ER Sepsis Triage</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Response</td>
+      <td>ER Registration</td>
+      <td>Leucocytes</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Response</td>
+      <td>ER Registration</td>
+      <td>ER Triage</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Response</td>
+      <td>ER Sepsis Triage</td>
+      <td>CRP</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Response</td>
+      <td>ER Sepsis Triage</td>
+      <td>Leucocytes</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Response</td>
+      <td>ER Triage</td>
+      <td>CRP</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Response</td>
+      <td>ER Triage</td>
+      <td>ER Sepsis Triage</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Response</td>
+      <td>ER Triage</td>
+      <td>Leucocytes</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>As last example, we set the activation and the target and ask for the template:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query_checker</span> <span class="o">=</span> <span class="n">DeclareQueryChecker</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="n">event_log</span><span class="p">,</span> <span class="n">consider_vacuity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;ER Registration&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;CRP&#39;</span><span class="p">,</span> <span class="n">min_support</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">return_first</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">query_check_res</span><span class="p">:</span> <span class="n">DeclareResultsBrowser</span> <span class="o">=</span> <span class="n">query_checker</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+<span class="n">query_check_res</span><span class="o">.</span><span class="n">filter_query_checking</span><span class="p">(</span><span class="n">queries</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;template&#39;</span><span class="p">,</span> <span class="s1">&#39;activation&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>template</th>
+      <th>activation</th>
+      <th>target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Choice</td>
+      <td>ER Registration</td>
+      <td>CRP</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Responded Existence</td>
+      <td>ER Registration</td>
+      <td>CRP</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Response</td>
+      <td>ER Registration</td>
+      <td>CRP</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Alternate Response</td>
+      <td>ER Registration</td>
+      <td>CRP</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Precedence</td>
+      <td>ER Registration</td>
+      <td>CRP</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Alternate Precedence</td>
+      <td>ER Registration</td>
+      <td>CRP</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Not Chain Response</td>
+      <td>ER Registration</td>
+      <td>CRP</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Not Chain Precedence</td>
+      <td>ER Registration</td>
+      <td>CRP</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Declare_Model_Discovery.html" class="btn btn-neutral float-left" title="DECLARE Model Discovery in Declare4Py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Log_Encodings.html" class="btn btn-neutral float-right" title="Log Encodings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, diell.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
